@@ -7,6 +7,7 @@ import pbkurnianto.dao.TaxItemDao;
 import pbkurnianto.entity.result.AddItemResult;
 import pbkurnianto.entity.result.GetBillResult;
 import pbkurnianto.entity.result.TaxItemResult;
+import pbkurnianto.utils.TaxCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,8 @@ public class BillService {
             for (Object[] arrObj: list) {
                 TaxItemResult taxRes = new TaxItemResult();
                 taxRes.setName(String.valueOf(arrObj[1]));
-                int taxCode = (int) arrObj[2];
+                int taxCodeVal = (int) arrObj[2];
+                TaxCode taxCode = TaxCode.valueOf(taxCodeVal);
                 taxRes.setTaxCode(taxCode);
                 taxRes.setPrice((double) arrObj[3]);
                 taxRes.setTaxRelated();

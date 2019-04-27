@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pbkurnianto.entity.model.TaxItem;
 import pbkurnianto.entity.result.AddItemResult;
-import pbkurnianto.entity.spec.TaxItemSpec;
 import pbkurnianto.service.TaxItemService;
+import pbkurnianto.utils.TaxCode;
 
 import java.util.Map;
 
@@ -20,7 +20,7 @@ public class TaxItemController {
     @PostMapping("/taxitem")
     public AddItemResult insertTaxItem(@RequestBody Map<String, String> body) {
         String name = body.get("name");
-        int taxcode = Integer.parseInt(body.get("tax_code"));
+        TaxCode taxcode = TaxCode.valueOf(Integer.parseInt(body.get("tax_code")));
         double price = Double.parseDouble(body.get("price"));
         int billId = Integer.parseInt(body.get("bill_id"));
         TaxItem newItem = new TaxItem(name, taxcode, price, billId);

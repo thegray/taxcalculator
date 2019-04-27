@@ -1,5 +1,7 @@
 package pbkurnianto.entity.model;
 
+import pbkurnianto.utils.TaxCode;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +16,7 @@ public class TaxItem {
     private String name;
 
     @Column(name = "taxCode")
-    private int taxCode;
+    private TaxCode taxCode;
 
     @Column(name = "price")
     private double price;
@@ -24,7 +26,7 @@ public class TaxItem {
 
     public TaxItem() { }
 
-    public TaxItem(String name, int taxCode, double price, int billId) {
+    public TaxItem(String name, TaxCode taxCode, double price, int billId) {
         this.name = name;
         this.taxCode = taxCode;
         this.price = price;
@@ -47,11 +49,11 @@ public class TaxItem {
         this.name = name;
     }
 
-    public int getTaxCode() {
+    public TaxCode getTaxCode() {
         return taxCode;
     }
 
-    public void setTaxCode(int taxCode) {
+    public void setTaxCode(TaxCode taxCode) {
         this.taxCode = taxCode;
     }
 

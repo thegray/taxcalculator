@@ -1,10 +1,11 @@
 package pbkurnianto.entity.result;
 
 import pbkurnianto.entity.model.TaxItem;
+import pbkurnianto.utils.TaxCode;
 
 public class TaxItemResult {
     private String name;
-    private int taxCode;
+    private TaxCode taxCode;
     private double price;
     private String type;
     private String refundable;
@@ -14,7 +15,7 @@ public class TaxItemResult {
     public TaxItemResult() {
     }
 
-    public TaxItemResult(String name, int taxCode, double price, String type, String refundable, double tax, double amount) {
+    public TaxItemResult(String name, TaxCode taxCode, double price, String type, String refundable, double tax, double amount) {
         this.name = name;
         this.taxCode = taxCode;
         this.price = price;
@@ -32,11 +33,11 @@ public class TaxItemResult {
         this.name = name;
     }
 
-    public int getTaxCode() {
+    public TaxCode getTaxCode() {
         return taxCode;
     }
 
-    public void setTaxCode(int taxCode) {
+    public void setTaxCode(TaxCode taxCode) {
         this.taxCode = taxCode;
     }
 
@@ -82,19 +83,19 @@ public class TaxItemResult {
 
     public void setTaxRelated() {
         switch (this.taxCode) {
-            case 1: {
+            case FOOD: {
                 this.refundable = "Yes";
                 this.type = "Food & Beverage";
                 this.tax = this.price * 0.1;
             }
             break;
-            case 2: {
+            case TOBACCO: {
                 this.refundable = "No";
                 this.type = "Tobacco";
                 this.tax = (this.price * 0.02) + 10;
             }
             break;
-            case 3: {
+            case ENTERTAINMENT: {
                 this.refundable = "No";
                 this.type = "Entertainment";
                 if (this.price >= 100) {

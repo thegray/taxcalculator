@@ -12,7 +12,6 @@ public class TaxItemService {
     @Autowired
     TaxItemDao taxItemDao;
 
-    // should return something
     public AddItemResult insertTaxItem(TaxItem newItem) {
         AddItemResult resp = new AddItemResult("Failed", -1);
         TaxItem item = taxItemDao.save(newItem);

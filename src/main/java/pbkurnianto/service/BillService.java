@@ -49,7 +49,7 @@ public class BillService {
                 TaxCode taxCode = TaxCode.valueOf(taxCodeVal);
                 taxRes.setTaxCode(taxCode);
                 taxRes.setPrice((double) arrObj[3]);
-                taxRes.setTaxRelated();
+                taxRes.calculateFinal();
                 priceSubTotal += taxRes.getPrice();
                 taxSubTotal += taxRes.getTax();
                 grandTotal += taxRes.getAmount();

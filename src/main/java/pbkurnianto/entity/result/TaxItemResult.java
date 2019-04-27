@@ -81,7 +81,7 @@ public class TaxItemResult {
         this.amount = amount;
     }
 
-    public void setTaxRelated() {
+    public void calculateFinal() {
         switch (this.taxCode) {
             case FOOD: {
                 this.refundable = "Yes";

@@ -1,20 +1,25 @@
 package pbkurnianto.entity.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "tax_item")
 public class TaxItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "taxCode")
     private int taxCode;
+
+    @Column(name = "price")
     private double price;
+
+    @Column(name = "billId")
     private int billId;
 
     public TaxItem() { }
@@ -24,6 +29,14 @@ public class TaxItem {
         this.taxCode = taxCode;
         this.price = price;
         this.billId = billId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

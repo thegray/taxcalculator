@@ -15,3 +15,6 @@ before creating docker image/container, please build the app first by running th
 maven clean install
 or
 use manual build script provided before
+
+# Documentations
+Documentations can be found in ./doc/ directory

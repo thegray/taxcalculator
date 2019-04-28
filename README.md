@@ -2,7 +2,7 @@
 Java 8, Maven and MySQL
 
 # Database
-This app will connect to MySQL with database 'tax' , username 'root' and password 'root'
+This app will connect to MySQL with database named 'tax' , username 'root' and password 'root'
 
 # Manual build instruction
 At root project root directory, run command below
